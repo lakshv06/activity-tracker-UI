@@ -1,25 +1,48 @@
-import { ReactElement, useState } from "react";
+import { ReactElement, useContext } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { SignInFormData } from "../interfaces/global.interface";
-import { FaEye, FaEyeSlash } from "react-icons/fa"; // Install react-icons if needed
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import ActivityTrackerAPI from "../../src/at-apiservices/apiServices"
+import contexts from "../context/common_context";
 
 export default function SignInPage(): ReactElement {
-  const [showPassword, setShowPassword] = useState(false);
 
   const methods = useForm<SignInFormData>({
     mode: "all",
   });
 
+  const UserContext = useContext(contexts.UserContext)
+
+  const navigate = useNavigate();
+
   const { handleSubmit, register , formState:{errors}} = methods;
 
-  const handleGetOtpSubmit = () => {
+  const handleGetOtpSubmit = async (event: SignInFormData) => {
     console.log("I got clicked");
+    console.log(event);
+    // use axios libraries later
+    const getOtpResponse = await ActivityTrackerAPI.getOTPResponse(event);
+    console.log(getOtpResponse);
+    if(getOtpResponse?.message=== "OTP sent to email"){
+        UserContext.setUser({email: event.email, token: getOtpResponse?.token_response});
+        sessionStorage.setItem("email", event.email);
+        sessionStorage.setItem("token", getOtpResponse?.token_response);
+        navigate("/otp-page");
+    } else{
+        //clear the form and show dial
+    }
   };
+
+  const handleSignUpClick = () =>{
+    console.log("clickedeasf");
+    navigate("/sign-up")
+    
+  }
 
   return (
     <div className="sign-in-page-whole-container">
       <div className="sign-in-form">
+        <p id = "signin-heading">Sign In to track your Activity</p>
         <FormProvider {...methods}>
           <form onSubmit={handleSubmit(handleGetOtpSubmit)}>
             <label htmlFor="email-id" id="email-label-id">
@@ -34,32 +57,10 @@ export default function SignInPage(): ReactElement {
               })}
             />
             {errors.email && <span className="error-message">{errors.email.message}</span>}
-            <div className="password-input-container">
-              <label htmlFor="password-id" id="password-label-id">
-                Password: 
-              </label>
-              <div className="password-input-wrapper">
-                <input
-                  id="password-id"
-                  placeholder="Enters Password..."
-                  type={showPassword ? "text" : "password"}
-                  {...register("password", {
-                    required: "Password field cannot be empty",
-                  })}
-                />
-                {errors.password &&<span className="error-message">{errors.password.message}</span>}
-                <button
-                  type="button"
-                  onClick={() => setShowPassword(!showPassword)}
-                  className="toggle-visibility"
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
-                </button>
-              </div>
-            </div>
             <button type="submit">Get OTP</button>
           </form>
         </FormProvider>
+        <p id="signin-form-link">Not a user yet? <span onClick={handleSignUpClick}>Sign up instead</span></p>
       </div>
       <Outlet />
     </div>

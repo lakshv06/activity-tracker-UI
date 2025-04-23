@@ -27,6 +27,7 @@ export default function SignInPage(): ReactElement {
         UserContext.setUser({email: event.email, token: getOtpResponse?.token_response});
         sessionStorage.setItem("email", event.email);
         sessionStorage.setItem("token", getOtpResponse?.token_response);
+        sessionStorage.setItem("name", getOtpResponse?.name)
         navigate("/otp-page");
     } else{
         //clear the form and show dial

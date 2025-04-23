@@ -118,3 +118,79 @@ button[type="submit"]:hover {
     font-size: 0.875rem;
     margin-top: 0.25rem;
 }
+
+#interactive-icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#logout-button{
+    border: white 0.0625rem solid;
+    border-radius: 8%;
+    background-color: red;
+    text-decoration: solid;
+    font-weight: 800;
+}
+
+#logout-button:hover{
+    border: red 0.0625rem solid;
+    border-radius: 8%;
+    background-color: white;
+    color: red;
+    text-decoration: solid;
+    font-weight: 800;
+}
+
+.nav-header-clickable-icon{
+    border: white 0.0625rem solid;
+    border-radius: 8%;
+    background-color: green;
+    text-decoration: solid;
+    font-weight: 800;
+}
+
+.nav-header-clickable-icon:hover{
+    border: green 0.0625rem solid;
+    border-radius: 8%;
+    background-color: white;
+    color: green;
+    text-decoration: solid;
+    font-weight: 800;
+}
+
+#nav-header-container{
+    background-color: lavender;
+    padding: 1rem;
+    width: 100%;
+    border-radius: 2%;
+    border: black 0.0625rem solid;
+}
+
+#homepage-container{
+    border-radius: 2%;
+    border: black 0.0625rem solid;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: lavender;
+    color: black;
+    padding: 1rem;
+    margin: 1rem;
+    width: 100;
+}
+
+.homepage-activities-row{
+    padding: 0.125rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: lightsalmon 0.0625rem solid;
+    margin: 0.0625rem;
+}
+
+.close-activity-button{
+    background-color: lightcoral;
+}

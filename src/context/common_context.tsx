@@ -1,9 +1,11 @@
 import {createContext} from "react";
-import { UserContextData } from "../interfaces/global.interface";
+import { SessionActiveContextData, UserContextData } from "../interfaces/global.interface";
 
 const UserContext = createContext<UserContextData>({email: "", token: "", setUser:()=>{}});
 
-const contexts = {UserContext};
+const SessionActiveContext = createContext<SessionActiveContextData>({isSessionActive : false, setIsSessionActive: ()=>{}});
+
+const contexts = {UserContext, SessionActiveContext};
 
 export default contexts;
 

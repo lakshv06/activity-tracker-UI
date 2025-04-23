@@ -1,12 +1,13 @@
 import { ReactElement, useContext } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { SignInFormData } from "../interfaces/global.interface";
+import { SignInFormData } from '../interfaces/global.interface';
 import { useNavigate } from "react-router-dom";
 import contexts from "../context/common_context";
 import ActivityTrackerAPI from "../../src/at-apiservices/apiServices"
 
 function OtpPage(): ReactElement {
   const UserContext = useContext(contexts.UserContext);
+  const SessionActiveContext = useContext(contexts.SessionActiveContext);
 
   const navigate = useNavigate();
 
@@ -31,6 +32,7 @@ function OtpPage(): ReactElement {
     const signInResponse = await ActivityTrackerAPI.loginUser(event);
     console.log("Sign In Response: ", signInResponse);
     if(signInResponse?.message === "Login successful!"){
+        SessionActiveContext.setIsSessionActive(true);
         navigate("/home");
     } else{
         console.log("Error on login: ", signInResponse);
@@ -46,6 +48,16 @@ function OtpPage(): ReactElement {
           <p id="signin-heading">Sign In to track your Activity</p>
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit(handleSignInSubmit)}>
+            <label htmlFor="name-id" id="name-label-id">
+                Name:
+              </label>
+              <input
+                id="name-id"
+                placeholder="Enter you Name..."
+                type="text"
+                disabled
+                value={sessionStorage.getItem("name")||""}
+              />
               <label htmlFor="email-id" id="email-label-id">
                 Email:
               </label>

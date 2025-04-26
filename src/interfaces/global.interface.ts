@@ -27,6 +27,12 @@ export interface SessionActiveContextData{
     setIsSessionActive: (active: boolean) => void;
 }
 
+export interface UserActivityContextData{
+    userActivities : AllActivityData ;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setUserActivities : (activity: any)=>void;
+}
+
 export type NavHeaderComponentsData = {
     [key: string] : {[key: string] : string};
 }

@@ -1,17 +1,21 @@
-import { ExerciseDataProps, SpecificActivityData } from "../interfaces/global.interface";
+import { ExerciseDataProps } from "../interfaces/global.interface";
 import ExerciseData from "./ExerciseData";
 
-function ActiveActivityExercise (props: SpecificActivityData){
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function ActiveActivityExercise (props: any){
 
-    const {name, tagline, exercises} = props
+    const {name, tagline, exercises} = props.activity_data;
+    const activity_key = props.activity_key;
+
+    // console.log("activity key: ", activity_key);
 
     return(
-        <div>
-            <div>{name}</div>
-            <div>{tagline}</div>
+        <div className="exercises-div">
+            <div className="exercise-div-name">{name}</div>
+            <div className="exercise-div-tagline">{tagline}</div>
             {exercises.map((item: ExerciseDataProps, index: number)=>(
-                <div key = {index}>
-                    <ExerciseData exercise = {item}/>
+                <div key = {index} className="exercises-child-div">
+                    <ExerciseData exercise = {item} activity_key = {activity_key}/>
                 </div>
             ))}
         </div>

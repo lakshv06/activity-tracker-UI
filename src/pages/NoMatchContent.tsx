@@ -29,7 +29,7 @@ function NoMatchContent() {
     }, [navigate])
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
+    <div id = "no-match-page-container">
       <h1>404 - Page Not Found</h1>
       <p>Looks like you got a little lost 😅</p>
       <p>

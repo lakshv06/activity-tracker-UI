@@ -8,6 +8,15 @@ body{
 
 }
 
+#no-match-page-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem;
+    color: black;
+}
+
 .logged-in-body{
     display: flex;
     flex-direction: column;

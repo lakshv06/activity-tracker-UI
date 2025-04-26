@@ -1,13 +1,17 @@
-import { ReactElement, useContext } from "react";
+import { ReactElement, useContext, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
-import { SignInFormData } from '../interfaces/global.interface';
+import { AllActivityData, SignInFormData } from '../interfaces/global.interface';
 import { useNavigate } from "react-router-dom";
 import contexts from "../context/common_context";
 import ActivityTrackerAPI from "../../src/at-apiservices/apiServices"
 
 function OtpPage(): ReactElement {
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const UserContext = useContext(contexts.UserContext);
   const SessionActiveContext = useContext(contexts.SessionActiveContext);
+  const UserActivityContext = useContext(contexts.UserActivityContext);
 
   const navigate = useNavigate();
 
@@ -21,24 +25,69 @@ function OtpPage(): ReactElement {
     formState: { errors },
   } = methods;
 
+    //TODO: Create an API call to fetch this data for a user
+
+  const activities : AllActivityData  = {
+    Activity1 :{
+        name: "Facial Fat Reduction Plan",
+        tagline: "Follow these exercises for a toned and slimmer face 🤟",
+        exercises:[
+            {
+                exercise_name: "Cheek Puff Exercise",
+                status: "Start"
+            },
+            {
+                exercise_name: "Balloon Blowing",
+                status: "Active"
+            },
+            {
+                exercise_name: "Jawline Lift (Chin Lift)",
+                status: "Done"
+            }
+        ]   
+    },
+    Activity2 :{
+        name: "Skin Toning Plan",
+        tagline: "Follow these exercises for a Clear and better skin 🤟",
+        exercises:[
+            {
+                exercise_name: "Sauna",
+                status: "Start"
+            },
+            {
+                exercise_name: "Swimming",
+                status: "Active"
+            },
+            {
+                exercise_name: "Ice Massage",
+                status: "Done"
+            }
+        ]   
+    }
+}
+
   const handleSignUpClick = () => {
-    console.log("clickedeasf");
     navigate("/sign-up");
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSignInSubmit = async (event: any) => {
+    setIsLoading(true);
     console.log("Form data after filling otp: ", event);
     const signInResponse = await ActivityTrackerAPI.loginUser(event);
     console.log("Sign In Response: ", signInResponse);
     if(signInResponse?.message === "Login successful!"){
+        setIsLoading(false);
         SessionActiveContext.setIsSessionActive(true);
+        UserActivityContext.setUserActivities(activities);
+        sessionStorage.setItem("curr_streak", signInResponse?.streak_data.curr_streak);
+        sessionStorage.setItem("max_streak", signInResponse?.streak_data.max_streak);
         navigate("/home");
     } else{
         console.log("Error on login: ", signInResponse);
+        setIsLoading(false);
         sessionStorage.clear();
     }
-
   };
 
   return (
@@ -102,7 +151,7 @@ function OtpPage(): ReactElement {
               {errors.password && (
                 <span className="error-message">{errors.password.message}</span>
               )}
-              <button type="submit">Sign In Baby</button>
+              <button type="submit" disabled={isLoading}>{isLoading ? "Loading..." :"Sign In Baby"}</button>
             </form>
           </FormProvider>
           <p id="signin-form-link">

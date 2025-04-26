@@ -15,6 +15,7 @@ class ActivityTrackerAPI {
       get_otp: "/get_login_session",
       user_sign_up: "/sign_up",
       sign_in: "/sign_in",
+      update_user_activity_data: "/update_user_activity_data"
     };
     this.url = `${environmentData.url}`;
   }
@@ -89,6 +90,30 @@ class ActivityTrackerAPI {
         });
     });
   };
+
+  updateUserActivityData = (bodyParams: any) : Promise<any> =>{
+    const token = sessionStorage.getItem("token");
+    return new Promise((res, rej)=>{
+      fetch(`${this.url}${this.endpoints.update_user_activity_data}/`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(bodyParams)
+      }).then(async (response)=>{
+        if(!response?.ok){
+          const errorData = await response.json();
+          rej(new Error(errorData?.message || "Request to patch user data failed"));
+        }
+        const data = response.json();
+        res(data);
+      }) .catch((e)=>{
+        rej (new Error(e.message || "Network error on patch user data call"))
+      })
+    })
+  }
+
 }
 
 export default new ActivityTrackerAPI();

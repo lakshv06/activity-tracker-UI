@@ -1,3 +1,18 @@
+body{
+    background-color:mistyrose;
+}
+
+#body-footer{
+    width : 100%;
+    color: black;
+
+}
+
+.logged-in-body{
+    display: flex;
+    flex-direction: column;
+}
+
 .sign-in-page-whole-container{
     padding: 1rem;
     display: flex;
@@ -189,8 +204,111 @@ button[type="submit"]:hover {
     align-items: center;
     border: lightsalmon 0.0625rem solid;
     margin: 0.0625rem;
+    width: 100%;
 }
 
 .close-activity-button{
     background-color: lightcoral;
+}
+
+.exercises-div{
+    border: lightsalmon 0.0625rem solid;
+    border-radius: 1%;
+    width: 100%;
+    margin: 0.5rem;
+}
+
+.exercise-div-name{
+    color: rgba(242, 130, 17, 0.927);
+    text-decoration: underline;
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.exercise-div-tagline{
+    color: rgba(242, 130, 17, 0.927);
+    font-weight: 600;
+    margin: 0rem 1rem 1rem;
+}
+
+.exercises-child-div{
+    margin: 0.0625rem;
+}
+
+.sub-exercise-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: solid lightsalmon 0.0625rem;
+    border-radius: 4%;
+}
+
+.button-Start{
+    color: green;
+    background-color: white;
+    border: green 0.0625rem solid;
+    margin: 0.25rem;
+    padding: auto;
+}
+
+.button-Start:hover{
+    color: white;
+    background-color: green;
+    border: white 0.0625rem solid;
+    /* margin: 0.25rem; */
+    /* padding: auto; */
+}
+
+.button-Active{
+    color: rgb(10, 99, 163);
+    background-color: white;
+    border: rgb(10, 99, 163) 0.0625rem solid;
+    margin: 0.25rem;
+    padding: auto;
+}
+
+.button-Active:hover{
+    color: white;
+    background-color: rgb(10, 99, 163);
+    border: white 0.0625rem solid;
+    /* margin: 0.25rem; */
+    /* padding: auto; */
+}
+
+.button-Done{
+    color: rgb(210, 57, 14);
+    background-color: white;
+    border: rgb(210, 57, 14) 0.0625rem solid;
+    margin: 0.25rem;
+    padding: auto;
+}
+
+.button-Done:hover{
+    color: white;
+    background-color: rgb(210, 57, 14);
+    border: white 0.0625rem solid;
+    /* margin: 0.25rem; */
+    /* padding: auto; */
+}
+
+.sub-exercise-name{
+    margin: 0.25rem;
+}
+
+.text-Done{
+    color: green;
+}
+
+.text-Active{
+    color:  rgb(10, 99, 163);
+}
+
+#streak-tracker-container{
+    background-color: lavender;
+    border: black 0.0625rem solid;
+    border-radius: 2%;
+    margin: 1rem;
+    color: black;
 }

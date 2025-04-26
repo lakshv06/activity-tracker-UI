@@ -16,6 +16,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 function App() {
   const [user, setUser] = useState({ email: "", token: "" });
   const [isSessionActive, setIsSessionActive] = useState(false);
+  const [userActivities, setUserActivities] = useState({});
 
   return (
     <div>
@@ -31,10 +32,18 @@ function App() {
               <Route path="sign-up" element={<SignUpPage />} />
               <Route path="otp-page" element={<OtpPage />} />
               <Route element={<ProtectedRoute />}>
-                <Route element={<AppLayout />}>
-                  <Route path="home" element={<HomePage />} />
-                  <Route path="streak-tracker" element={<StreakTracker />} />
-                </Route>
+              <Route
+                element={
+                  <contexts.UserActivityContext.Provider
+                    value={{ userActivities, setUserActivities }}
+                  >
+                    <AppLayout />
+                  </contexts.UserActivityContext.Provider>
+                }
+              >
+                <Route path="home" element={<HomePage />} />
+                <Route path="streak-tracker" element={<StreakTracker />} />
+              </Route>
               </Route>
               <Route path="*" element={<NoMatchContent />} />
             </Routes>

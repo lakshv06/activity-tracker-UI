@@ -1,4 +1,4 @@
-import { ReactElement, useContext } from "react";
+import { ReactElement, useContext, useState } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { SignInFormData } from "../interfaces/global.interface";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -6,6 +6,8 @@ import ActivityTrackerAPI from "../../src/at-apiservices/apiServices"
 import contexts from "../context/common_context";
 
 export default function SignInPage(): ReactElement {
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const methods = useForm<SignInFormData>({
     mode: "all",
@@ -20,16 +22,19 @@ export default function SignInPage(): ReactElement {
   const handleGetOtpSubmit = async (event: SignInFormData) => {
     console.log("I got clicked");
     console.log(event);
+    setIsLoading(true);
     // use axios libraries later
     const getOtpResponse = await ActivityTrackerAPI.getOTPResponse(event);
     console.log(getOtpResponse);
     if(getOtpResponse?.message=== "OTP sent to email"){
+        setIsLoading(false);
         UserContext.setUser({email: event.email, token: getOtpResponse?.token_response});
         sessionStorage.setItem("email", event.email);
         sessionStorage.setItem("token", getOtpResponse?.token_response);
         sessionStorage.setItem("name", getOtpResponse?.name)
         navigate("/otp-page");
     } else{
+      setIsLoading(false);
         //clear the form and show dial
     }
   };
@@ -58,7 +63,7 @@ export default function SignInPage(): ReactElement {
               })}
             />
             {errors.email && <span className="error-message">{errors.email.message}</span>}
-            <button type="submit">Get OTP</button>
+            <button type="submit" disabled = {isLoading}>{isLoading ? "Loading..." : "Get OTP"}</button>
           </form>
         </FormProvider>
         <p id="signin-form-link">Not a user yet? <span onClick={handleSignUpClick}>Sign up instead</span></p>

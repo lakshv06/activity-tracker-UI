@@ -51,3 +51,15 @@ export interface SpecificActivityData {
 export interface AllActivityData{
     [key: string] : SpecificActivityData;
 }
+
+export type State = {
+    date: number;
+    month: number;
+    year: number;
+  };
+
+export type Action =
+  | { type: "PREV_MONTH" }
+  | { type: "NEXT_MONTH" }
+  | { type: "SET_TODAY" };
+  

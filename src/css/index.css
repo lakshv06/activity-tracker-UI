@@ -1,323 +1,334 @@
-body{
-    background-color:mistyrose;
+body {
+  background-color: mistyrose;
 }
 
-#body-footer{
-    width : 100%;
-    color: black;
-
+#body-footer {
+  width: 100%;
+  color: black;
 }
 
-#no-match-page-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 5rem;
-    color: black;
+#no-match-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem;
+  color: black;
 }
 
-.logged-in-body{
-    display: flex;
-    flex-direction: column;
+.logged-in-body {
+  display: flex;
+  flex-direction: column;
 }
 
-.sign-in-page-whole-container{
-    padding: 1rem;
-    display: flex;
-    justify-content:center;
-    align-items: center;
-    gap: 4rem;
-    border: 0.25rem lavender solid;
-    border-radius: 4%;
-    min-height: 50vh;
-    background-color: moccasin;
+.sign-in-page-whole-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  border: 0.25rem lavender solid;
+  border-radius: 4%;
+  min-height: 50vh;
+  background-color: moccasin;
 }
 
-.bouncy-logo-image{
-    display: inline;
-    width: 80%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
+.bouncy-logo-image {
+  display: inline;
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
 }
 
-#signin-heading{
-    color: orange;
-    font-weight: 800;
+#signin-heading {
+  color: orange;
+  font-weight: 800;
 }
 
-#signin-form-link{
-    color: orange;
-    font-weight: 200;
+#signin-form-link {
+  color: orange;
+  font-weight: 200;
 }
 
-#signin-form-link span{
-    font-weight: 400;
-    text-decoration: underline;
+#signin-form-link span {
+  font-weight: 400;
+  text-decoration: underline;
 }
 
-#signin-form-link span:hover{
-    cursor: pointer;
+#signin-form-link span:hover {
+  cursor: pointer;
 }
 
 .sign-in-form {
-    background: white;
-    padding: 3rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 15rem;
+  background: white;
+  padding: 3rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 15rem;
 }
 
 .sign-in-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sign-in-form label {
-    font-weight: 500;
-    color: #2d3748;
-    margin-bottom: 0.5rem;
-    display: block;
+  font-weight: 500;
+  color: #2d3748;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .sign-in-form input {
-    width: 100%;
-    padding: 0.8rem 1rem;
-    border: 0.0625rem solid #e2e8f0;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    transition: border-color 0.2s;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 0.0625rem solid #e2e8f0;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  transition: border-color 0.2s;
 }
 
 .sign-in-form input:focus {
-    outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 0.125rem rgba(102, 126, 234, 0.2);
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 0.125rem rgba(102, 126, 234, 0.2);
 }
 
 .password-input-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .toggle-visibility {
-    position: absolute;
-    right: 0.75rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: #718096;
-    cursor: pointer;
-    padding: 0.25rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #718096;
+  cursor: pointer;
+  padding: 0.25rem;
 }
 
 .toggle-visibility:hover {
-    color: #667eea;
+  color: #667eea;
 }
 
 button[type="submit"] {
-    background: orange;
-    color: white;
-    padding: 1rem;
-    border: none;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background 0.2s;
+  background: orange;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
 button[type="submit"]:hover {
-    background: white;
-    border: 1px orange solid;
-    color: orange;
+  background: white;
+  border: 1px orange solid;
+  color: orange;
 }
 
 /* Error message styling */
 .error-message {
-    color: #e53e3e;
-    font-size: 0.875rem;
-    margin-top: 0.25rem;
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
 }
 
-#interactive-icons{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+#interactive-icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-#logout-button{
-    border: white 0.0625rem solid;
-    border-radius: 8%;
-    background-color: red;
-    text-decoration: solid;
-    font-weight: 800;
+#logout-button {
+  border: white 0.0625rem solid;
+  border-radius: 8%;
+  background-color: red;
+  text-decoration: solid;
+  font-weight: 800;
 }
 
-#logout-button:hover{
-    border: red 0.0625rem solid;
-    border-radius: 8%;
-    background-color: white;
-    color: red;
-    text-decoration: solid;
-    font-weight: 800;
+#logout-button:hover {
+  border: red 0.0625rem solid;
+  border-radius: 8%;
+  background-color: white;
+  color: red;
+  text-decoration: solid;
+  font-weight: 800;
 }
 
-.nav-header-clickable-icon{
-    border: white 0.0625rem solid;
-    border-radius: 8%;
-    background-color: green;
-    text-decoration: solid;
-    font-weight: 800;
+.nav-header-clickable-icon {
+  border: white 0.0625rem solid;
+  border-radius: 8%;
+  background-color: green;
+  text-decoration: solid;
+  font-weight: 800;
 }
 
-.nav-header-clickable-icon:hover{
-    border: green 0.0625rem solid;
-    border-radius: 8%;
-    background-color: white;
-    color: green;
-    text-decoration: solid;
-    font-weight: 800;
+.nav-header-clickable-icon:hover {
+  border: green 0.0625rem solid;
+  border-radius: 8%;
+  background-color: white;
+  color: green;
+  text-decoration: solid;
+  font-weight: 800;
 }
 
-#nav-header-container{
-    background-color: lavender;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 2%;
-    border: black 0.0625rem solid;
+#nav-header-container {
+  background-color: lavender;
+  padding: 1rem;
+  width: 100%;
+  border-radius: 2%;
+  border: black 0.0625rem solid;
 }
 
-#homepage-container{
-    border-radius: 2%;
-    border: black 0.0625rem solid;
+#homepage-container {
+  border-radius: 2%;
+  border: black 0.0625rem solid;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: lavender;
-    color: black;
-    padding: 1rem;
-    margin: 1rem;
-    width: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: lavender;
+  color: black;
+  padding: 1rem;
+  margin: 1rem;
+  width: 100;
 }
 
-.homepage-activities-row{
-    padding: 0.125rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: lightsalmon 0.0625rem solid;
-    margin: 0.0625rem;
-    width: 100%;
+.homepage-activities-row {
+  padding: 0.125rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: lightsalmon 0.0625rem solid;
+  margin: 0.0625rem;
+  width: 100%;
 }
 
-.close-activity-button{
-    background-color: lightcoral;
+.close-activity-button {
+  background-color: lightcoral;
 }
 
-.exercises-div{
-    border: lightsalmon 0.0625rem solid;
-    border-radius: 1%;
-    width: 100%;
-    margin: 0.5rem;
+.exercises-div {
+  border: lightsalmon 0.0625rem solid;
+  border-radius: 1%;
+  width: 100%;
+  margin: 0.5rem;
 }
 
-.exercise-div-name{
-    color: rgba(242, 130, 17, 0.927);
-    text-decoration: underline;
-    font-weight: 600;
-    margin: 1rem;
+.exercise-div-name {
+  color: rgba(242, 130, 17, 0.927);
+  text-decoration: underline;
+  font-weight: 600;
+  margin: 1rem;
 }
 
-.exercise-div-tagline{
-    color: rgba(242, 130, 17, 0.927);
-    font-weight: 600;
-    margin: 0rem 1rem 1rem;
+.exercise-div-tagline {
+  color: rgba(242, 130, 17, 0.927);
+  font-weight: 600;
+  margin: 0rem 1rem 1rem;
 }
 
-.exercises-child-div{
-    margin: 0.0625rem;
+.exercises-child-div {
+  margin: 0.0625rem;
 }
 
-.sub-exercise-div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    background-color: white;
-    border: solid lightsalmon 0.0625rem;
-    border-radius: 4%;
+.sub-exercise-div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border: solid lightsalmon 0.0625rem;
+  border-radius: 4%;
 }
 
-.button-Start{
-    color: green;
-    background-color: white;
-    border: green 0.0625rem solid;
-    margin: 0.25rem;
-    padding: auto;
+.button-Start {
+  color: green;
+  background-color: white;
+  border: green 0.0625rem solid;
+  margin: 0.25rem;
+  padding: auto;
 }
 
-.button-Start:hover{
-    color: white;
-    background-color: green;
-    border: white 0.0625rem solid;
-    /* margin: 0.25rem; */
-    /* padding: auto; */
+.button-Start:hover {
+  color: white;
+  background-color: green;
+  border: white 0.0625rem solid;
+  /* margin: 0.25rem; */
+  /* padding: auto; */
 }
 
-.button-Active{
-    color: rgb(10, 99, 163);
-    background-color: white;
-    border: rgb(10, 99, 163) 0.0625rem solid;
-    margin: 0.25rem;
-    padding: auto;
+.button-Active {
+  color: rgb(10, 99, 163);
+  background-color: white;
+  border: rgb(10, 99, 163) 0.0625rem solid;
+  margin: 0.25rem;
+  padding: auto;
 }
 
-.button-Active:hover{
-    color: white;
-    background-color: rgb(10, 99, 163);
-    border: white 0.0625rem solid;
-    /* margin: 0.25rem; */
-    /* padding: auto; */
+.button-Active:hover {
+  color: white;
+  background-color: rgb(10, 99, 163);
+  border: white 0.0625rem solid;
+  /* margin: 0.25rem; */
+  /* padding: auto; */
 }
 
-.button-Done{
-    color: rgb(210, 57, 14);
-    background-color: white;
-    border: rgb(210, 57, 14) 0.0625rem solid;
-    margin: 0.25rem;
-    padding: auto;
+.button-Done {
+  color: rgb(210, 57, 14);
+  background-color: white;
+  border: rgb(210, 57, 14) 0.0625rem solid;
+  margin: 0.25rem;
+  padding: auto;
 }
 
-.button-Done:hover{
-    color: white;
-    background-color: rgb(210, 57, 14);
-    border: white 0.0625rem solid;
-    /* margin: 0.25rem; */
-    /* padding: auto; */
+.button-Done:hover {
+  color: white;
+  background-color: rgb(210, 57, 14);
+  border: white 0.0625rem solid;
+  /* margin: 0.25rem; */
+  /* padding: auto; */
 }
 
-.sub-exercise-name{
-    margin: 0.25rem;
+.sub-exercise-name {
+  margin: 0.25rem;
 }
 
-.text-Done{
-    color: green;
+.text-Done {
+  color: green;
 }
 
-.text-Active{
-    color:  rgb(10, 99, 163);
+.text-Active {
+  color: rgb(10, 99, 163);
 }
 
-#streak-tracker-container{
-    background-color: lavender;
-    border: black 0.0625rem solid;
-    border-radius: 2%;
-    margin: 1rem;
-    color: black;
+#streak-tracker-container {
+  background-color: lavender;
+  border: black 0.0625rem solid;
+  border-radius: 2%;
+  margin: 1rem;
+  color: black;
+}
+
+#streak-tracker-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+
+#streak-tracker-container > * {
+  margin: 0.25rem;
 }
